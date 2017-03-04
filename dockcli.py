@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import click
 import docker
 import time
@@ -46,7 +44,6 @@ def main(action, name):
     #turn it off
     if action == 'stop':
         stop(name, client)
-
 
 if __name__ == '__main__':
     main()
