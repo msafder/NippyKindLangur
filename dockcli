@@ -12,20 +12,26 @@ def main(action, name):
 
     #kick it on, do a healthcheck, and return the URL to hit
     if action == 'run':
-        container = client.containers.run("sudomilk/nippykindlangur:latest", detach=True, name=name, ports={'8080/tcp': 8080})
-        get_status = 'curl -sw %{http_code} --output /dev/null http://0.0.00:8080/hello'
-        time.sleep(5)
-        http_response = container.exec_run(get_status)
-        if http_response == b'200':
+        kwargs = {
+            'detach': True,
+            'name': name,
+            'ports': {'8080/tcp': 8080}
+        }
+        container = client.containers.run("sudomilk/nippykindlangur:latest", **kwargs)
+        hcheck_resp = healthcheck(container)
+        if hcheck_resp == b'200':
             click.echo('Your app is running on http://127.0.0.1:8080/hello')
-        else:
-            click.echo(http_response, name)
 
     #turn it off
     if action == 'stop':
         container = client.containers.get(name)
         container.stop()
         container.remove()
+
+def healthcheck(container):
+    hcheck = 'curl -sw %{http_code} --output /dev/null http://0.0.00:8080/hello'
+    time.sleep(5)
+    return container.exec_run(hcheck)
 
 if __name__ == '__main__':
     main()
