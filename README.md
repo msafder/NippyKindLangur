@@ -44,7 +44,7 @@ Extras:
 Tools to use
 ---
 
-CLI Framework: Python click (http://click.pocoo.org/5/)
-Python docker module: docker-py (https://github.com/docker/docker-py)
-Docker
-Flask: http://flask.pocoo.org/
++ CLI Framework: [Python click](http://click.pocoo.org/5/)
++ Python docker module: [docker-py](https://github.com/docker/docker-py)
++ [Docker](https://www.docker.com/)
++ [Flask](http://flask.pocoo.org/)
