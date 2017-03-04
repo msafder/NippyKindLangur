@@ -3,8 +3,8 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/helloand')
-def helloand():
+@app.route('/hello')
+def hello():
     return jsonify({'result': 'hello world'})
 
 if __name__ == '__main__':
