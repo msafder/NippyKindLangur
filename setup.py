@@ -22,6 +22,6 @@ setup(
     author_email='mailertaylor@gmail.com',
     keywords='docker python flask click',
     py_modules=["dockcli"],
-    install_requires=['docker-py', 'Flask', 'click'],
+    install_requires=['docker', 'Flask', 'click'],
     entry_points={'console_scripts': ['dockcli=dockcli:main']}
 )
