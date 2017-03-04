@@ -12,6 +12,8 @@ Flask in Docker that has one endpoint and a CLI for running it
 + Health check Interval: 5s
 + Store the container in a docker registry
 
+**Automated build available at [the Docker Hub](https://hub.docker.com/r/sudomilk/nippykindlangur/)**
+
 
 2. Build a CLI in python to interact with your container
 ---
