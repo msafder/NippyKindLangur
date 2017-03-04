@@ -2,6 +2,19 @@ import click
 import docker
 import time
 
+#main cli config
+@click.command()
+@click.argument('action')
+@click.argument('name')
+def main(action, name):
+    client = docker.from_env()
+    #kick it on, do a healthcheck, and return the URL to hit
+    if action == 'run':
+        run(name, client)
+    #turn it off
+    if action == 'stop':
+        stop(name, client)
+
 def healthcheck(container):
     """curls the container on 8080 and URI "/hello"
     returns HTTP response code
@@ -31,19 +44,6 @@ def stop(name, client):
     container = client.containers.get(name)
     container.stop()
     container.remove()
-
-#main cli config
-@click.command()
-@click.argument('action')
-@click.argument('name')
-def main(action, name):
-    client = docker.from_env()
-    #kick it on, do a healthcheck, and return the URL to hit
-    if action == 'run':
-        run(name, client)
-    #turn it off
-    if action == 'stop':
-        stop(name, client)
 
 if __name__ == '__main__':
     main()
