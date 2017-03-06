@@ -21,7 +21,7 @@ def healthcheck(container):
     """
     # directly pulling this command from the countainer has issues do the OR switch
     hcheck = 'curl -sw %{http_code} --output /dev/null http://0.0.00:8080/hello'
-    time.sleep(5)
+    time.sleep(1)
     return container.exec_run(hcheck)
 
 def run(name, client):
