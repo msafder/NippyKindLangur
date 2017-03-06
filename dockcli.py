@@ -4,7 +4,7 @@ import time
 
 #main cli config
 @click.command()
-@click.argument('action')
+@click.argument('action', type=click.Choice(['run', 'stop']))
 @click.argument('name')
 def main(action, name):
     client = docker.from_env()
