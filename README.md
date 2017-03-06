@@ -48,3 +48,10 @@ Tools to use
 + Python docker module: [docker-py](https://github.com/docker/docker-py)
 + [Docker](https://www.docker.com/)
 + [Flask](http://flask.pocoo.org/)
+
+***
+
+Would like to improve on...
+---
+
++ Break commands out into their own directory so as to be more modular and less clumsy as just one "action" switch
