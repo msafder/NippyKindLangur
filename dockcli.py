@@ -19,6 +19,7 @@ def healthcheck(container):
     """curls the container on 8080 and URI "/hello"
     returns HTTP response code
     """
+    # directly pulling this command from the countainer has issues do the OR switch
     hcheck = 'curl -sw %{http_code} --output /dev/null http://0.0.00:8080/hello'
     time.sleep(5)
     return container.exec_run(hcheck)
